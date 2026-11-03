@@ -1,0 +1,483 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    background: #ffffff;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 22px 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+
+    background: transparent;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar.scrolled {
+    background-color: rgba(20, 70, 45, 0.95);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #ffffff;
+}
+
+.brand img {
+    width: 46px;
+}
+
+.brand-text strong {
+    font-size: 16px;
+}
+
+.brand-text span {
+    font-size: 13px;
+    opacity: 0.9;
+    display: block;
+}
+
+.navbar nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 28px;
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+.navbar nav a.active,
+.navbar nav a:hover {
+    opacity: 1;
+    border-bottom: 2px solid #ffffff;
+    padding-bottom: 4px;
+}
+
+@media (max-width: 768px){
+
+    .navbar{
+        padding:15px 20px;
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    nav{
+        width:100%;
+        display:flex;
+        flex-wrap:wrap;
+        gap:14px;
+        justify-content:center;
+        margin-top:10px;
+    }
+
+    .brand{
+        justify-content:center;
+        width:100%;
+    }
+
+}
+
+
+/* ================= HERO ================= */
+.hero {
+    width: 100%;
+    height: 100vh;
+    background-image: url("/images/landing/home.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+}
+
+.hero-content h1 {
+    font-size: 44px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.hero-content h2 {
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    max-width: 850px;
+    line-height: 1.8;
+    opacity: 0.95;
+}
+
+/* ================= INFORMASI NAGARI ================= */
+.info-nagari {
+    margin-top: 30px;
+    padding: 50px 10%;
+    background-color: #f8f9f7;
+}
+
+.info-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 80px;
+}
+
+.info-left {
+    flex: 1;
+}
+
+.info-left h2 {
+    font-size: 48px;
+    font-weight: 700;
+    color: #1f5f3b;
+    margin-bottom: 25px;
+}
+
+.info-left p {
+    font-size: 18px;
+    line-height: 2;
+    color: #444;
+    max-width: 600px;
+}
+
+.info-right {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+}
+
+.info-card {
+    background: #ffffff;
+    padding: 55px 30px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.info-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.info-card img {
+    width: 95px;
+    margin-bottom: 22px;
+}
+
+.info-card h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1f5f3b;
+}
+.info-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none; /* hilangkan underline */
+    color: inherit;        /* warna ikut teks */
+    cursor: pointer;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+}
+
+
+/* ================= MAP SECTION ================= */
+.map-section {
+  
+    padding: 60px 5%;
+}
+
+.map-header {
+    margin-bottom: 25px;
+}
+
+.map-header h2 {
+    font-size: 38px;
+    font-weight: 800;
+    color: #1f5f3b;
+}
+
+.map-header p {
+    font-size: 16px;
+    color: #555;
+    margin-top: 6px;
+}
+
+#map {
+    width: 100%;
+    height: 650px;
+    border-radius: 16px;
+    overflow: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* ================================================= */
+/* ========== TAMBAHAN KHUSUS LEAFLET & JS ========== */
+/* ================================================= */
+
+/* Popup Leaflet */
+.leaflet-popup-content-wrapper {
+    border-radius: 12px;
+    padding: 6px;
+}
+
+.leaflet-popup-content {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.leaflet-popup-tip {
+    background: #ffffff;
+}
+
+/* Control layer (toggle peta) */
+.leaflet-control-layers {
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    font-size: 14px;
+}
+
+.leaflet-control-layers-expanded {
+    padding: 12px;
+}
+
+/* Cursor interaktif polygon */
+.leaflet-interactive {
+    cursor: pointer;
+}
+
+/* Hover effect polygon (sinkron dengan JS highlight) */
+.leaflet-interactive:hover {
+    filter: brightness(0.95);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px) {
+    .info-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .info-left p {
+        margin: 0 auto;
+    }
+
+    #map {
+        height: 520px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-content h1 {
+        font-size: 34px;
+    }
+
+    .hero-content h2 {
+        font-size: 28px;
+    }
+
+    .info-right {
+        grid-template-columns: 1fr;
+    }
+
+    #map {
+        height: 420px;
+        border-radius: 12px;
+    }
+}
+
+
+/* ================= GALERI ================= */
+
+.galeri {
+    padding: 60px 6%;
+    background: #f8f9f7;
+}
+
+/* header */
+.struktur-header {
+    margin-bottom: 22px;
+}
+
+.struktur-header h2 {
+    font-size: 38px;
+    margin-bottom: 6px;
+}
+
+.struktur-header p {
+    max-width: 620px;
+    font-size: 16px;
+    color: #444;
+}
+
+/* ================= CAROUSEL ================= */
+
+.carousel-wrapper {
+    position: relative;
+    overflow: hidden;
+    padding: 12px 0;
+}
+
+.carousel-track {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    transition: transform .6s ease;
+}
+
+/* card */
+.struktur-card {
+    min-width: 520px;
+    height: 340px;
+    border-radius: 18px;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 8px 24px rgba(0,0,0,.15);
+}
+
+.struktur-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* tombol */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #2f6d55;
+    color: white;
+    border: none;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.carousel-btn.prev { left: 10px; }
+.carousel-btn.next { right: 10px; }
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:992px){
+    .struktur-card{
+        min-width:85%;
+        height:260px;
+    }
+}
+
+@media(max-width:600px){
+    .struktur-header h2{
+        font-size:30px;
+    }
+}
+
+
+/* ================= FOOTER ================= */
+.footer {
+    background-color: #1f4f3a;
+    color: #ffffff;
+    padding: 60px 10% 30px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+}
+
+.footer-col h4 {
+    font-size: 18px;
+    margin-bottom: 16px;
+    font-weight: 700;
+}
+
+.footer-col p {
+    font-size: 14px;
+    line-height: 1.8;
+    opacity: 0.9;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    font-size: 14px;
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+.footer-col ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.footer-col ul li a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+/* BOTTOM */
+.footer-bottom {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    text-align: center;
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+/* RESPONSIVE */
+@media (max-width: 576px) {
+    .footer {
+        padding: 50px 6% 25px;
+        text-align: center;
+    }
+}

@@ -1,0 +1,304 @@
+/* ===============================
+   GLOBAL RESET
+================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===============================
+   BODY & GLOBAL SPACING
+================================ */
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f5;
+    color: #333;
+    line-height: 1.2;
+
+    /* JARAK DARI NAVBAR FIXED */
+    padding-top: 80px;
+}
+
+/* ===============================
+   CONTAINER UTAMA (KUNCI!)
+================================ */
+.page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 60px 90px;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+
+    background-color: rgba(20, 70, 45, 0.95);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #ffffff;
+}
+
+.brand img {
+    width: 46px;
+}
+
+.brand-text strong {
+    font-size: 16px;
+}
+
+.brand-text span {
+    font-size: 13px;
+    opacity: 0.9;
+    display: block;
+}
+
+.navbar nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 28px;
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+.navbar nav a:hover,
+.navbar nav a.active {
+    opacity: 1;
+    border-bottom: 2px solid #ffffff;
+    padding-bottom: 4px;
+}
+
+
+.header {
+    background: #4a7c3a; /* hijau nagari */
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.header h1 {
+    margin-bottom: 10px;
+    font-size: 36px;
+}
+
+.header p {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+@media (max-width: 768px){
+
+    .navbar{
+        padding:15px 20px;
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    nav{
+        width:100%;
+        display:flex;
+        flex-wrap:wrap;
+        gap:14px;
+        justify-content:center;
+        margin-top:10px;
+    }
+
+    .brand{
+        justify-content:center;
+        width:100%;
+    }
+
+}
+
+
+/* ===============================
+   JUDUL HALAMAN
+================================ */
+.page-title {
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 3px;
+}
+
+.page-desc {
+    font-size: 15px;
+    color: #555;
+    max-width: 720px;
+    margin-bottom: 45px;
+}
+
+/* ===============================
+   GRID KEGIATAN
+================================ */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+}
+
+/* ===============================
+   CARD KEGIATAN
+================================ */
+.news-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-6px);
+}
+
+.news-card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+.news-content {
+    padding: 22px;
+}
+
+.news-content h3 {
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.news-content p {
+    font-size: 14px;
+    color: #555;
+}
+
+.news-content a {
+    display: inline-block;
+    margin-top: 14px;
+    color: #1f5f3b;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ===============================
+   DETAIL KEGIATAN
+================================ */
+.detail-box {
+    background: #ffffff;
+    padding: 36px;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.detail-box img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+.detail-box h1 {
+    margin-bottom: 18px;
+}
+
+
+.back-link {
+    display: inline-block;
+    margin-top: 25px;
+    color: #1f5f3b;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* ===============================
+   FOOTER
+================================ */
+.footer {
+    background-color: #1f4f3a;
+    color: #ffffff;
+    padding: 80px 10% 35px;
+    margin-top: 5px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 45px;
+}
+
+.footer-col h4 {
+    font-size: 18px;
+    margin-bottom: 16px;
+    font-weight: 700;
+}
+
+.footer-col p,
+.footer-col ul li {
+    font-size: 14px;
+    line-height: 1.9;
+    opacity: 0.9;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer-col ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    margin-top: 45px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    text-align: center;
+    font-size: 13px;
+    opacity: 0.85;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+    body {
+        padding-top: 130px;
+    }
+
+    .page-container {
+        padding: 32px 28px 70px;
+    }
+
+    .page-title {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding-top: 140px;
+    }
+
+    .navbar {
+        padding: 18px 24px;
+    }
+
+    .page-container {
+        padding: 26px 20px 60px;
+    }
+}

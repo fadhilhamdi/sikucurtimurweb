@@ -1,0 +1,402 @@
+    /* RESET */
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:Arial;
+    }
+
+    /* BODY */
+    body{
+        background:#f4f6f5;
+        padding-top:60px;
+    }
+
+    /* ================= NAVBAR ================= */
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px 70px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+
+        background-color: rgba(20, 70, 45, 0.95);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: #ffffff;
+    }
+
+    .brand img {
+        width: 46px;
+    }
+
+    .brand-text strong {
+        font-size: 16px;
+    }
+
+    .brand-text span {
+        font-size: 13px;
+        opacity: 0.9;
+        display: block;
+    }
+
+    .navbar nav a {
+        color: #ffffff;
+        text-decoration: none;
+        margin-left: 28px;
+        font-size: 14px;
+        opacity: 0.85;
+    }
+
+    .navbar nav a:hover,
+    .navbar nav a.active {
+        opacity: 1;
+        border-bottom: 2px solid #ffffff;
+        padding-bottom: 4px;
+    }
+
+
+    .header {
+        background: #4a7c3a; /* hijau nagari */
+        color: white;
+        text-align: center;
+        padding: 60px 20px;
+    }
+
+    .header h1 {
+        margin-bottom: 10px;
+        font-size: 36px;
+    }
+
+    .header p {
+        font-size: 18px;
+        opacity: 0.9;
+    }
+
+@media (max-width: 768px){
+
+    .navbar{
+        padding:15px 20px;
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    nav{
+        width:100%;
+        display:flex;
+        flex-wrap:wrap;
+        gap:14px;
+        justify-content:center;
+        margin-top:10px;
+    }
+
+    .brand{
+        justify-content:center;
+        width:100%;
+    }
+
+}
+    /* ================= HERO ================= */
+    .hero{
+        padding:80px 0 10px;
+        text-align:center;
+    }
+
+    .hero h1{
+        font-size:36px;
+        color:#214f38;
+        margin-bottom: 10px;
+    }
+
+    .hero p{
+        color:#666;
+    }
+
+    /* ================= GRID ================= */
+    .grid{
+        max-width:1200px;
+        margin:auto;
+        padding:40px 60px;
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+        gap:30px;
+    }
+
+   /* ================= CARD YOUTUBE STYLE ================= */
+.card{
+    position:relative;
+    border-radius:18px;
+    overflow:hidden;
+    text-decoration:none;
+    box-shadow:0 10px 25px rgba(0,0,0,0.18);
+    background:#000;
+    transition:.25s;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 18px 40px rgba(0,0,0,0.25);
+}
+
+/* Rasio 16:9 */
+.card img{
+    width:100%;
+    aspect-ratio:16/9;
+    object-fit:cover;
+    transition:.45s ease;
+}
+
+.card:hover img{
+    transform:scale(1.08);
+}
+
+/* Overlay bawah ala YouTube */
+.overlay{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+
+    padding:20px;
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,.9),
+        rgba(0,0,0,.45),
+        transparent 60%
+    );
+    color:white;
+}
+
+/* Judul */
+.overlay h3{
+    font-size:20px;
+    font-weight:700;
+    margin-bottom:4px;
+}
+
+/* Deskripsi */
+.overlay p{
+    font-size:13px;
+    opacity:.85;
+    line-height:1.4;
+}
+
+@media(max-width:768px){
+
+    .grid{
+        padding:20px;
+        gap:20px;
+    }
+
+    .card img{
+        height:180px;
+    }
+
+}
+
+    /* =========================================
+    SINGLE CARD YOUTUBE STYLE
+    ========================================= */
+
+    .yt-card{
+        max-width:1250px;
+        margin:30px auto;
+        padding:40px 50px;
+
+        background:white;
+        border-radius:20px;
+        box-shadow:0 12px 30px rgba(0,0,0,0.12);
+    }
+
+
+    /* GRID DALAM CARD */
+    .youtube-layout{
+        display:grid;
+        grid-template-columns: 2.3fr 1fr;
+        gap:30px;
+    }
+
+
+    /* LEFT */
+    .yt-main{
+        display:flex;
+        flex-direction:column;
+        gap:18px;
+    }
+
+    .yt-title{
+        font-size:28px;
+        font-weight:700;
+        color:#1f3d2b;
+    }
+
+    /* VIDEO */
+    .yt-main video{
+        width:100%;
+        height:420px;
+        border-radius:14px;
+        object-fit:cover;
+
+    }
+
+
+    /* DESKRIPSI */
+    .yt-desc{
+        font-size:15px;
+        line-height:1.5;
+        color:#444;
+        text-align:justify;
+    }
+
+
+    /* BUTTON */
+    .back{
+        width:fit-content;
+        margin-top:25px;
+        padding:10px 18px;
+        background:#214f38;
+        color:white;
+        border-radius:10px;
+        text-decoration:none;
+        font-size:14px;
+        transition:.25s;
+    }
+
+    .back:hover{
+        background:#2f6e4d;
+    }
+
+    /* RIGHT */
+    .yt-side{
+        display:flex;
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .yt-side h3{
+        font-size:16px;
+        color:#214f38;
+    }
+
+    .yt-info h4{
+        margin-top:30px;   /* jarak dari list sebelumnya */
+        margin-bottom:12px;
+        font-size:15px;
+        color:#214f38;
+    }
+
+    .yt-thumb img{
+        width:100%;
+        height:230px;
+        border-radius:14px;
+        object-fit:cover;
+        transition:.3s;
+    }
+
+    .yt-thumb:hover img{
+        transform:scale(1.05);
+    }
+
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
+        .youtube-layout{
+            grid-template-columns:1fr;
+        }
+
+        .yt-main video{
+            height:260px;
+        }
+    }
+
+
+    /* ===============================
+    FOOTER
+    ================================ */
+    .footer {
+        background-color: #1f4f3a;
+        color: #ffffff;
+        padding: 80px 10% 35px;
+    }
+
+    .footer-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 45px;
+    }
+
+    .footer-col h4 {
+        font-size: 18px;
+        margin-bottom: 16px;
+    }
+
+    .footer-col p,
+    .footer-col ul li {
+        font-size: 14px;
+        line-height: 1.9;
+    }
+
+    .footer-col ul {
+        list-style: none;
+    }
+
+    .footer-col ul li a {
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    .footer-bottom {
+        margin-top: 45px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255,255,255,0.25);
+        text-align: center;
+        font-size: 13px;
+    }
+
+    /* ===============================
+    RESPONSIVE
+    ================================ */
+    @media (max-width: 768px) {
+
+        .navbar {
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .wisata-card {
+            flex-direction: column;
+        }
+
+        .wisata-card img {
+            width: 100%;
+            height: 220px;
+        }
+
+        .wisata-detail {
+            padding: 28px;
+            margin: 130px 16px 60px;
+        }
+
+        .wisata-detail img {
+            height: 240px;
+        }
+
+        .wisata-map iframe {
+            height: 260px;
+        }
+
+        .wisata-hero {
+            padding: 0 28px;
+            height: 240px;
+        }
+    }
